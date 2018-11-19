@@ -11,20 +11,20 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import { bindActionCreators, Dispatch } from "redux";
 
 // local imports
-import { eQueryStringParam } from "src/types/enum";
-import { IbuildTree, Itree } from "src/types/index.js";
 import { HttpError } from "../../api/http-errors";
 import { makeGetRequest } from "../../api/index";
 import { defaultEndpoint } from "../../constants/end-points";
 import { dispatchActions } from "../../store/action";
+import { eQueryStringParam } from "../../types/enum";
 import { actionClasses, errorDefs, treeStructure } from '../../types/enum';
+import { ItreeStructureCount } from '../../types/index';
 import {
   IdispatchParam,
   IkeyValuePair,
   Indicators,
   IstoreState
 } from "../../types/index";
-import { ItreeStructureCount } from "../../types/index";
+import { IbuildTree, Itree } from "../../types/index";
 import { Idata, IqueryStringFormat } from "../../types/index";
 import { buildTreeFromInput } from "../../utils/build-tree";
 import { selectChain } from "../../utils/selection";
@@ -48,6 +48,7 @@ interface IontologyProps extends RouteComponentProps {
   chainError: any;
   pending: boolean;
   dispatchActions: typeof dispatchActions;
+  store?: IstoreState;// for testing component
 }
 
 // Default states

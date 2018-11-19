@@ -2,7 +2,7 @@
  * @file -define http Errors and its status message
  */
 // Local imports
-import { errorDefs } from "src/types/enum";
+import { errorDefs } from "../types/enum";
 import { HTTPErrorTypes } from "../types/types";
 
 export interface IhttpError {
