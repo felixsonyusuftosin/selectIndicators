@@ -21,7 +21,10 @@ interface ItableView {
     treeName: string
   ): void;
 }
-
+/**
+ * @function TableView - functional component that renders the table 
+ * accordingly 
+ */
 export const TableView = (props: ItableView) => {
   const { selectIndicator, level, treeStructureClass } = props;
 
