@@ -24,6 +24,7 @@ import {
   Indicators,
   IstoreState
 } from "../../types/index";
+import { ItreeStructureCount } from "../../types/index";
 import { Idata, IqueryStringFormat } from "../../types/index";
 import { buildTreeFromInput } from "../../utils/build-tree";
 import { selectChain } from "../../utils/selection";
@@ -32,7 +33,6 @@ import { NotFoundComponent } from "../static-pages/404";
 import { ErrorComponent } from "../static-pages/500";
 import { Header } from "../static-pages/header";
 import { TableView } from "./table-view";
-import { ItreeStructureCount } from "../../types/index";
 
 // Interface
 interface IontologyStates {
