@@ -3,13 +3,18 @@
  */
 
 // Enumeration for selection test suites
+/**
+ * @enum selectionTests enumeration for different values for testing selections
+ */
 export enum selectionTests {
   TEST_CATEGORIES_SELECTION = "Check if categories are selected on the block efficiently",
   TEST_PROPAGATION_SELECTION = "Check if selections are propagated along the tree efficiently",
   TEST_MULTIPLE_SELECTIONS = "Check if multiple selections are propagated efficiently"
 }
 
-// Enumeration for linked tests
+/**
+ * @enum linkedTests 
+ */
 export enum linkedTests {
   TEST_ALL_KEYS = "Check The trees keys if it gets all the keys of the object",
   TEST_ARRAY_MANAGEMENT = "Check if array is managed effectively by the tree class within the fields",
@@ -69,6 +74,9 @@ export enum headersEnum {
   json = 'application/json; charset=utf-8',
   formEncoded = 'application/x-www-form-urlencoded'
 }
+/**
+ * @enum - httpTypeEnum 
+ */
  export enum httpTypeEnum { 
    POST = 'POST', 
    GET = 'GET',
@@ -82,4 +90,9 @@ export enum treeStructure {
   SUBTHEMES = 'sub_themes',
   CATEGORIES = 'categories',
   INDICATORS = 'indicators'
+}
+
+// Test for table view component
+export enum tableViewTests { 
+  renderTests = 'It should render the table view correctly when appropriate props are passed'
 }

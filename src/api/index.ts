@@ -24,8 +24,8 @@ const fetchOptions: IfetchOptions = {
 
 /**
  * @function makeGetRequest makes an http request
- * @param {string} url
- * @param { Options { url: string, inputData: Object, Context: {String - Type of GET, PATCH, POST, PUT } }
+ * @param  { string } url
+ * @param  { httpTypeEnum }  context
  * @return { Promise<{Object}>}
  */
 export const makeGetRequest = (
