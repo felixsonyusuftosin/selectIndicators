@@ -45,7 +45,7 @@ export class Tree implements Itree {
   }
 
   /**
-   * @method - Get  Get All the fields
+   * @method getFields -  Get All the fields
    * if we need the array  field we pass getArrayField
    * otherwise we just pass in the data
    * @param { Object } data  - to be parsed by the method
@@ -70,7 +70,7 @@ export class Tree implements Itree {
   };
 
   /**
-   * Get all the data value keys within the key value pair of the object
+   * @method getKeys Get all the data value keys within the key value pair of the object
    * of the tree
    * @param {Object} data - parsed data
    * @return { string[]}
