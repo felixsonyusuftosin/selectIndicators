@@ -7,6 +7,6 @@ State management was implemented with redux
 - To start up the app run `docker-compose up -d --build`
 - To start in detach mode `docker-compose up --build`
 - Ensure nothing is running on port 3000 (localhost);
-- Navigate to `localhost/3000`;
+- Navigate to `http://localhost:3000`;
 - To stop the app run `docker-compose stop`
 
