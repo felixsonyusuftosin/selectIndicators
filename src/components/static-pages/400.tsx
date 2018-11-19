@@ -4,7 +4,7 @@
 
 // third party imports
 import * as React from "react";
-import { HTTPErrorTypes } from "src/types/types";
+import { HTTPErrorTypes } from "../../types/types";
 
 export interface IrequestErrorComponent {
   statusMessage: HTTPErrorTypes;

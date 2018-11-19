@@ -95,5 +95,6 @@ export enum treeStructure {
 // Test for table view component
 export enum tableViewTests { 
   renderTests = 'It should render the table view correctly when appropriate props are passed',
-  renderOntology = "It should shallowly render the ontology component"
+  renderOntology = "It should shallowly render the ontology component",
+  renderStatic = "It should shallow render all static pages"
 }
