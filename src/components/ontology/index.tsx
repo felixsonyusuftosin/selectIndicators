@@ -17,7 +17,7 @@ import { HttpError } from "../../api/http-errors";
 import { makeGetRequest } from "../../api/index";
 import { defaultEndpoint } from "../../constants/end-points";
 import { dispatchActions } from "../../store/action";
-import { actionClasses, errorDefs, treeStructure } from "../../types/enum";
+import { actionClasses, errorDefs, treeStructure } from '../../types/enum';
 import {
   IdispatchParam,
   IkeyValuePair,
@@ -32,6 +32,7 @@ import { NotFoundComponent } from "../static-pages/404";
 import { ErrorComponent } from "../static-pages/500";
 import { Header } from "../static-pages/header";
 import { TableView } from "./table-view";
+import { ItreeStructureCount } from "../../types/index";
 
 // Interface
 interface IontologyStates {
@@ -147,6 +148,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
    * render error layer
    * select Indicator
    * decode query string
+   * getTreeStructure 
    * ----------------------------------------------
    */
 
@@ -190,7 +192,12 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
    * @param { boolean } - status
    * @param { string } - treeName
    */
-  public selectIndicator = (tree: Itree, level: string, status: boolean, treeName: string) => {
+  public selectIndicator = (
+    tree: Itree,
+    level: string,
+    status: boolean,
+    treeName: string
+  ) => {
     const { chain } = this.props;
     const getSelections = () => {
       return selectChain(level, chain, status, tree.position);
@@ -235,6 +242,29 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
     });
   };
 
+  /**
+   * @method get delineations of items turn every tree in the array of trees to a structure according to its categories
+   * @param { Itree }
+   * @return { ItreeStructureCount}
+   */
+  public getTreeStructure = (block: Itree[]): ItreeStructureCount => {
+    const treeClass: ItreeStructureCount = {
+      [treeStructure.THEMES]: [],
+      ["sub_themes"]: [],
+      [treeStructure.CATEGORIES]: [],
+      [treeStructure.INDICATORS]: []
+    };
+    block.map((tree: Itree) => {
+      let { category = treeStructure.THEMES } = tree;
+      if (!category) {
+        category = treeStructure.THEMES;
+      }
+      treeClass[category] = [...treeClass[category], tree];
+    });
+    return treeClass;
+  };
+
+  // Render the component 
   public render() {
     const { error, chain, pending, chainError } = this.props;
     const { hasError } = this.state;
@@ -248,7 +278,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
       );
     } else if (pending) {
       return <div className="loading"> Loading ...</div>;
-    } else if (hasError ||  chainError) {
+    } else if (hasError || chainError) {
       return (
         <div className="main-body">
           <Header />
@@ -286,12 +316,13 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
                         {Object.keys(chain).map(
                           (level: string, index: number) => {
                             const block = chain[level];
+                            const treeStructureClass = this.getTreeStructure(block);
                             return (
                               <TableView
                                 key={index}
                                 selectIndicator={this.selectIndicator}
                                 level={level}
-                                block={block}
+                                treeStructureClass={treeStructureClass}
                               />
                             );
                           }
@@ -309,7 +340,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
   }
 }
 const matchDispathToProps = (
-  dispatch: Dispatch<IdispatchParam< Itree[] |Idata | IbuildTree>>
+  dispatch: Dispatch<IdispatchParam<Itree[] | Idata | IbuildTree>>
 ) => {
   return bindActionCreators(
     {

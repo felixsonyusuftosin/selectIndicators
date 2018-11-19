@@ -11,36 +11,19 @@ import { ItreeStructureCount } from "../../types/index";
 
 // interface declaration
 interface ItableView {
-  block: Itree[];
+  treeStructureClass: ItreeStructureCount;
   level: string;
-  selectIndicator(tree: Itree, level: string, status: boolean, treeName: string): void;
+  selectIndicator(
+    tree: Itree,
+    level: string,
+    status: boolean,
+    treeName: string
+  ): void;
 }
 
-/**
- * @method get delineations of items turn every tree in the array of trees to a structure according to its categories
- * @param { Itree }
- * @return { ItreeStructureCount}
- */
-const getTreeStructure = (block: Itree[]): ItreeStructureCount => {
-  const treeClass: ItreeStructureCount = {
-    [treeStructure.THEMES]: [],
-    ["sub_themes"]: [],
-    [treeStructure.CATEGORIES]: [],
-    [treeStructure.INDICATORS]: []
-  };
-  block.map((tree: Itree) => {
-    let { category = treeStructure.THEMES } = tree;
-    if (!category) {
-      category = treeStructure.THEMES;
-    }
-    treeClass[category] = [...treeClass[category], tree];
-  });
-  return treeClass;
-};
-
 export const TableView = (props: ItableView) => {
-  const { block, selectIndicator, level } = props;
-  const treeStructureClass = getTreeStructure(block);
+  const { selectIndicator, level, treeStructureClass } = props;
+
   return (
     <tr className="row200 body">
       <td
@@ -91,7 +74,9 @@ export const TableView = (props: ItableView) => {
               <tr
                 key={key}
                 // tslint:disable-next-line:jsx-no-lambda
-                onClick={() => selectIndicator(indicators, level, status, treeName)}
+                onClick={() =>
+                  selectIndicator(indicators, level, status, treeName)
+                }
                 className={selected ? "selected" : ""}
               >
                 {" "}
