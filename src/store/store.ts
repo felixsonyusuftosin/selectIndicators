@@ -26,6 +26,7 @@ export const convertToCamelCase = (
 
 /**
  * @function updateReducersObject merge reducers and return object
+ * @return { Object }
  */
 export const updateReducersObject = (): {} => {
   const mergedReducers = {};
