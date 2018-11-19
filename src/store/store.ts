@@ -10,7 +10,7 @@ import { IkeyValuePair } from "src/types";
 import { reducerObject } from "./reducer";
 
 /**
- * @method convertToCamelCase  converts  any object fields to camel case
+ * @function convertToCamelCase  converts  any object fields to camel case
  * @param { object } obj input object that fields needs to  be converted
  * @return { object | string } then pobject returned after fields has being converted to camelcase
  */
@@ -25,7 +25,7 @@ export const convertToCamelCase = (
 };
 
 /**
- * @method merge reducers and return object
+ * @function updateReducersObject merge reducers and return object
  */
 export const updateReducersObject = (): {} => {
   const mergedReducers = {};

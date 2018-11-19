@@ -16,7 +16,7 @@ import { ActionObjects } from "../types/types";
 import { actionDictionary } from "./action-types";
 
 /**
- * @function dispatch the appropriate action type , loads the actionDictionary
+ * @function callActionType the appropriate action type , loads the actionDictionary
  * and maps the param with the appropriate dictionary value
  * @param { ActionObjects } - actionDictionaryKey -
  */
@@ -61,7 +61,7 @@ export const callActionType = (
 };
 
 /**
- * @function a generic action creator that calls the appropriate actions as required
+ * @function dispatchActions generic action creator that calls the appropriate actions as required
  * @param { string } dictKey - the actionDictionary key that is being called
  * @param { ActionFunctionType } the parameter passed could either
  * be a function or an object

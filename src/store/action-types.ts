@@ -19,7 +19,7 @@ const RECIEVE_ITEM = (PARAM: ActionObjects) => `RECIEVE_${PARAM}`;
 const FAIL_ITEM = (PARAM: ActionObjects) => `FAIL_${PARAM}`;
 
 /**
- * @method - constructs action dictionary
+ * @function  actionDictionary constructs action dictionary
  * @param { IactionObjects }
  */
 export const actionDictionary = (

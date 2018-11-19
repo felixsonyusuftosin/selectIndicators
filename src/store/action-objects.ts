@@ -15,16 +15,16 @@
 import { actionClasses } from '../types/enum';
 
 
+
+const { ONTOLOGY_BLOCK, CHAIN } = actionClasses;
 /**
- * @const - this will populate the redux store with the required actions 
+ * @const actionObjects - this will populate the redux store with the required actions 
  * ****************************************
  * TO UPDATE THIS CONFIG VARIABLE 
  * ****************************************
  * *** Key Represents the reference to the layer ***
  * *** Values should be a string of type ActionObjects 
  */
-const { ONTOLOGY_BLOCK, CHAIN } = actionClasses;
-
 export const actionObjects: IactionObjects = {
     CHAIN,
     ONTOLOGY_BLOCK

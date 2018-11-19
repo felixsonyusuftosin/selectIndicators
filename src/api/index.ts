@@ -23,7 +23,7 @@ const fetchOptions: IfetchOptions = {
 };
 
 /**
- * @method - makes an http request
+ * @function makeGetRequest makes an http request
  * @param {string} url
  * @param { Options { url: string, inputData: Object, Context: {String - Type of GET, PATCH, POST, PUT } }
  * @return { Promise<{Object}>}

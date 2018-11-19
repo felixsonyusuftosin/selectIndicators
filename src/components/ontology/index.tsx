@@ -153,7 +153,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
    */
 
   /**
-   * @method - renders the appropriate error layers depending on the HPP status
+   * @method renderErrorLayer renders the appropriate error layers depending on the HPP status
    * @param  { HttpError, IkeyValuePair } - the error being parsed
    * @return { ReacElement }
    */
@@ -185,7 +185,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
   };
 
   /**
-   * @method - selects an indicator and propagate selections along parents
+   * @method selectIndicator selects an indicator and propagate selections along parents
    * dispatches an action and updates the store with the selection
    * @param { Itree } - tree
    * @param { string } - level
@@ -219,7 +219,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
   };
 
   /**
-   * @method - decodes the query string and dispatch actions to update the store with selected chain
+   * @method decodeQueryString the query string and dispatch actions to update the store with selected chain
    * @param { string } - rawQueryString
    */
   public decodeQueryString = (rawQueryString: string) => {
@@ -243,7 +243,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
   };
 
   /**
-   * @method get delineations of items turn every tree in the array of trees to a structure according to its categories
+   * @method getTreeStructure delineations of items turn every tree in the array of trees to a structure according to its categories
    * @param { Itree }
    * @return { ItreeStructureCount}
    */
@@ -285,7 +285,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
           <div className="limiter" />
           <div className="loading">
             {" "}
-            Hey I wasnt expectiing that will you mind refreshing your browser
+            Hey I wasnt expecting that will you mind refreshing your browser
             ...
           </div>
         </div>

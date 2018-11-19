@@ -10,7 +10,7 @@ import { actionDictionary } from './action-types';
 const initialState = {};
 
 /**
- * @function returns reducers that represents the variables defined in the actionDictionary Constants 
+ * @function reducerObjec returns reducers that represents the variables defined in the actionDictionary Constants 
  * @return  { Object } - return values 
  */
 export const reducerObject = ():{} => {
