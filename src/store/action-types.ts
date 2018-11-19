@@ -1,6 +1,6 @@
 /**
- * @file defines a unified action type for all the actions used in the FTS Platform
- * This file does not need to be updated if the config file `redux-variables.ts` is properly configured
+ * @file defines a unified action type for all the actions used 
+ * This file does not need to be updated is properly configured
  * and updated
  */
 

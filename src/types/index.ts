@@ -1,4 +1,4 @@
-import { treeStructureType } from "./types";
+
 /**
  * @file - Define all types here
  */
@@ -14,7 +14,6 @@ import {
   queryStringFormat,
   RoutesParam
 } from "./types";
-
 // Interfaces
 export interface IkeyValuePair {
   // Generic interface that handles objects of unknown types

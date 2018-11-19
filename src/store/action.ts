@@ -1,6 +1,6 @@
 /**
  * @file this file implements a generic action
- * This file will typically not require updates or edits unless it for maintainance reasons
+ * This file will typically not require updates or edits unless its for maintainance reasons
  * It unifies all action creators that will be called
  */
 

@@ -76,10 +76,10 @@ test(linkedTests.TEST_ARRAY_MANAGEMENT, () => {
 });
 
 /**
- * @abstract tests the build tree class
+ * tests the build tree class
  */
 test(linkedTests.TEST_INCREMENTER, () => {
-  // Tes with empty chldren node
+  // Test with empty chldren node
   const buildTree = new BuildTree();
   const incrementByOne = buildTree.incrementer();
   
