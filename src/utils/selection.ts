@@ -5,7 +5,7 @@ import { BuildTree } from "./build-tree";
  */
 
 /**
- * @method - return the count of selected tree pointing to the same parent
+ * @function getCountSelectedCategories - return the count of selected tree pointing to the same parent
  * @param { Itree } - tree - value to search
  * @param { itree[] } - block - the current block
  * @return { number }
@@ -22,7 +22,7 @@ export const getCountSelectedCategories = (
 };
 
 /**
- * @method propagate selections along the tree
+ * @function propagateSelections selections along the tree
  * @param  { Itree[] } block
  * @param  { boolean } status
  * @param  { Itree } tree
@@ -45,7 +45,7 @@ export const propagateSelections = (
 };
 
 /**
- * @method selects an indicator and checks if its parent has being selected before
+ * @function selectionEvent an indicator and checks if its parent has being selected before
  * propagating events
  * @param  { Itree[] } block
  * @param  { boolean } status
@@ -75,7 +75,7 @@ export const selectionEvent = (
 };
 
 /**
- * @method - select a block from a chain and return the chain
+ * @function selectChain select a block from a chain and return the chain
  * @param { string } - level
  * @param { BuildTree } - chain
  * @param { boolean } - status

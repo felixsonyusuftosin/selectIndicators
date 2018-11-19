@@ -15,7 +15,7 @@ export class BuildTree implements IbuildTree {
   }
 
   /**
-   * @method - utility function that builds the key in the object
+   * @method incrementer - utility function that builds the key in the object
    * that is returned as our linked tree
    */
   public incrementer = (): string => {
@@ -29,7 +29,7 @@ export class BuildTree implements IbuildTree {
   };
 
   /**
-   * @Method - Populates the linked trees as an array within an object
+   * @method populateTree  - Populates the linked trees as an array within an object
    * hence each sub_item becomes an array - while the items within this array represents
    * the tree , linked together
    * @param {Object} node  - Dataset to convert to linked tree
@@ -69,7 +69,7 @@ export class BuildTree implements IbuildTree {
   };
 }
 /**
- * @method calls the build tree class and builds a tree accordinly 
+ * @method buildTreeFromInput calls the build tree class and builds a tree accordinly 
  * @param { Idata } input  - input tree 
  */
 export const buildTreeFromInput = (input: Idata[]) => {
