@@ -16,8 +16,8 @@ import { makeGetRequest } from "../../api/index";
 import { defaultEndpoint } from "../../constants/end-points";
 import { dispatchActions } from "../../store/action";
 import { eQueryStringParam } from "../../types/enum";
-import { actionClasses, errorDefs, treeStructure } from '../../types/enum';
-import { ItreeStructureCount } from '../../types/index';
+import { actionClasses, errorDefs, treeStructure } from "../../types/enum";
+import { ItreeStructureCount } from "../../types/index";
 import {
   IdispatchParam,
   IkeyValuePair,
@@ -48,7 +48,7 @@ interface IontologyProps extends RouteComponentProps {
   chainError: any;
   pending: boolean;
   dispatchActions: typeof dispatchActions;
-  store?: IstoreState;// for testing component
+  store?: IstoreState; // for testing component
 }
 
 // Default states
@@ -90,7 +90,13 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
   public componentDidMount() {
     const { props } = this;
     const { search } = location;
+    const { params } = props.match;
+    const { unit } = params as any;
     const urlLocation = queryString.parse(search, arrayFormat);
+    // Fetch the data set
+    const getInputTree = () => {
+      return makeGetRequest(`${defaultEndpoint}/${unit}`);
+    };
     if (Object.keys(urlLocation).length > 0) {
       this.setState(() => {
         return {
@@ -98,12 +104,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
         };
       });
     }
-    const { params } = props.match;
-    const { unit } = params as any;
-    // Fetch the data set
-    const getInputTree = () => {
-      return makeGetRequest(`${defaultEndpoint}/${unit}`);
-    };
+
     // get the input tree
     this.props.dispatchActions(actionClasses.ONTOLOGY_BLOCK, {
       func: getInputTree
@@ -149,7 +150,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
    * render error layer
    * select Indicator
    * decode query string
-   * getTreeStructure 
+   * getTreeStructure
    * ----------------------------------------------
    */
 
@@ -265,7 +266,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
     return treeClass;
   };
 
-  // Render the component 
+  // Render the component
   public render() {
     const { error, chain, pending, chainError } = this.props;
     const { hasError } = this.state;
@@ -286,8 +287,7 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
           <div className="limiter" />
           <div className="loading">
             {" "}
-            Hey I wasnt expecting that will you mind refreshing your browser
-            ...
+            Hey I wasnt expecting that will you mind refreshing your browser ...
           </div>
         </div>
       );
@@ -317,7 +317,9 @@ class Ontology extends React.Component<IontologyProps, IontologyStates> {
                         {Object.keys(chain).map(
                           (level: string, index: number) => {
                             const block = chain[level];
-                            const treeStructureClass = this.getTreeStructure(block);
+                            const treeStructureClass = this.getTreeStructure(
+                              block
+                            );
                             return (
                               <TableView
                                 key={index}
