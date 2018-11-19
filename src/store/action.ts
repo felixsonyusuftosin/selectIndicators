@@ -65,10 +65,6 @@ export const callActionType = (
  * @param { string } dictKey - the actionDictionary key that is being called
  * @param { ActionFunctionType } the parameter passed could either
  * be a function or an object
- * -------------------------------------------------------------------
- *  This function updates the store and calls the appropriate
- * reducer
- * -------------------------------------------------------------------
  */
 
 export const dispatchActions = (
