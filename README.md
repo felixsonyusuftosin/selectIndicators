@@ -1,5 +1,5 @@
 
-## Test Exercise for Fractal Block Chain
+## A Typescript project
 
 The application was built with react (typescript)
 State management was implemented with redux 
