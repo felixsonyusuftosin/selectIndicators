@@ -15,5 +15,8 @@ enzyme.configure({ adapter: new Adapter() });
 
 it(tableViewTests.renderOntology, () => {
   const ontologyComponent = shallow(<Ontology store={store}/>);
-//   expect(ontologyComponent).toMatchSnapshot();
-});
+  const componentInstance = ontologyComponent.instance()
+  componentInstance.componentDidMount();
+      expect(ontologyComponent.state('hasError')).toBeFalsy();
+      expect(ontologyComponent).toMatchSnapshot();
+    });
