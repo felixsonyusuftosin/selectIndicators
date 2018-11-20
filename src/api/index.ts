@@ -9,6 +9,7 @@
 import { IkeyValuePair } from "src/types";
 import { headersEnum, httpTypeEnum } from "../types/enum";
 import { IfetchOptions } from "../types/index";
+import { HTTPMethodTypes } from '../types/types';
 import { HttpError } from "./http-errors";
 
 // Global contants
@@ -25,12 +26,12 @@ const fetchOptions: IfetchOptions = {
 /**
  * @function makeGetRequest makes an http request
  * @param  { string } url
- * @param  { httpTypeEnum }  context
+ * @param  {  HTTPMethodTypes }  context
  * @return { Promise<{Object}>}
  */
 export const makeGetRequest = (
   url: string,
-  context = httpTypeEnum.GET
+  context: HTTPMethodTypes = httpTypeEnum.GET
 ): Promise<IkeyValuePair> => {
   return new Promise((resolve, reject) => {
     if (context === httpTypeEnum.GET) {
